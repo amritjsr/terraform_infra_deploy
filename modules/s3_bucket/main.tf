@@ -4,11 +4,6 @@ resource "aws_s3_bucket" "this_bucket" {
   tags = var.tags
 }
 
-#resource "aws_s3_bucket_acl" "example" {
-#  bucket = aws_s3_bucket.this_bucket.id
-#  acl    = var.acl
-#}
-
 resource "aws_s3_bucket_versioning" "versioning_example" {
   bucket = aws_s3_bucket.this_bucket.id
   versioning_configuration {
@@ -16,10 +11,3 @@ resource "aws_s3_bucket_versioning" "versioning_example" {
   }
 }
 
-output "bucket_id" {
-  value = aws_s3_bucket.this_bucket.id
-}
-
-output "bucket_arn" {
-  value = aws_s3_bucket.this_bucket.arn
-}
